@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<br><br>
+<br><br>
+<br><br>
+<div class="alert alert-dismissible alert-warning">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <h4 class="alert-heading">Hi {{ user.username }}!</h4>
+  <p class="mb-0">Please go to the application's  <a href="/accounts/add/" class="alert-link">dashboard</a>.</p>
+</div>
+  <p><a href="{% url 'logout' %}">logout</a></p>
+
+{% else %}
+
+<br>
+<div class="alert alert-dismissible alert-warning">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <h4 class="alert-heading">Welcome to Feedbook!</h4>
+    <p class="mb-0">You can use this web app to add feedbacks and view them from admin panel, app developed by Adersh Balu (AM.AR.U317BCA006).</p>
+</div>
+
+{% endif %}
+{% endblock %}
